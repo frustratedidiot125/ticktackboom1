@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A sample number guessing game for Alexa",
   "main": "index.js",
+   "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "Matt Kruse <github@mattkruse.com> (http://mattkruse.com/)",
   "license": "ISC",
   "alexa": {
