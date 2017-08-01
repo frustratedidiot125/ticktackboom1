@@ -53,10 +53,17 @@ app.intent('GuessIntent', {
       } else if (guess < number) {
         res.say("Guess higher");
       }
-      res.reprompt("Sorry, I didn't hear a number. Try again.");
+      else if (isNaN(guess)) {
+      res.say("I'm sorry, but " + guess "is not a number. Please try again.");
       res.session('guesses', guesses);
       res.shouldEndSession(false);
-    }
+        }
+      
+        res.say("I'm sorry, but I didn't hear a number. Please try again.");
+      res.session('guesses', guesses);
+      res.shouldEndSession(false);
+        
+        }
   }
 );
 
