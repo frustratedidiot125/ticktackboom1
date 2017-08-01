@@ -59,7 +59,7 @@ app.intent('GuessIntent', {
       res.shouldEndSession(false);
         }
       
-        res.say("I'm sorry, but I didn't hear a number. Please try again.");
+        res.say("I'm sorry, but I didn't hear an actual number. Please try again.");
       res.session('guesses', guesses);
       res.shouldEndSession(false);
         
