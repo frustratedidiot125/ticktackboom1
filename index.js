@@ -54,12 +54,12 @@ app.intent('GuessIntent', {
         res.say("Guess higher");
       }
       else if (isNaN(guess)) {
-      res.say("I'm sorry, but " + guess "is not a number. Please try again.");
+      res.say("I'm sorry, but " + guess + " is not an actual number. Please guess again.");
       res.session('guesses', guesses);
       res.shouldEndSession(false);
         }
       
-        res.say("I'm sorry, but I didn't hear an actual number. Please try again.");
+        res.say("I'm sorry, but I didn't hear a number. Please try again.");
       res.session('guesses', guesses);
       res.shouldEndSession(false);
         
