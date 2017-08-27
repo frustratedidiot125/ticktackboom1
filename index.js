@@ -1,13 +1,12 @@
-var alexa = require('alexa-app');
+var alexa = require("alexa-app");
 var express = require("express");
 var PORT = process.env.PORT || 8080;
-var express_app = express();
-//var app = express();
-var app = new alexa.app("alexa");
 
+var app = express();
+var alexaApp = new alexa.app("alexa");
 
 app.express({
-  expressApp: express_app,
+  expressApp: app,
   //router: express.Router(),
 
   // verifies requests come from amazon alexa. Must be enabled for production.
@@ -53,14 +52,14 @@ function shuffleArray(array) {
   return array;
 }
 
-app.launch(function(req, res) {
+alexaApp.launch(function(req, res) {
   
   
   
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
 
-app.intent('Generate', {
+alexaApp.intent('Generate', {
     "slots": { "digits": "numba" },
     "utterances": ["{1-100|guess}"]
   },
@@ -105,7 +104,7 @@ app.intent('Generate', {
 
 //module.exports = app;
 
-app.intent("AMAZON.StopIntent", {
+alexaApp.intent("AMAZON.StopIntent", {
   "slots": {} },
 //"utterances": [ 
  //              "help", "help me"
@@ -116,7 +115,7 @@ app.intent("AMAZON.StopIntent", {
   }
  );
 
-app.intent("AMAZON.CancelIntent", {
+alexaApp.intent("AMAZON.CancelIntent", {
   "slots": {} },
 //"utterances": [ 
  //              "help", "help me"
@@ -126,7 +125,7 @@ app.intent("AMAZON.CancelIntent", {
     response.say("Cancelling. Goodbye!").shouldEndSession(true);
   }
  );
-app.intent("AMAZON.HelpIntent", {
+alexaApp.intent("AMAZON.HelpIntent", {
   "slots": {} },
 //"utterances": [ 
  //              "help", "help me"
