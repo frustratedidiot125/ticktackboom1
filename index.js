@@ -72,7 +72,7 @@ alexaApp.intent('Generate', {
 
   if (!rawdigits){
     var password = generatePassword(rnumber);
-    res.say('Your new ' + rnumber + ' character long password is <prosody rate="x-slow"><say-as interpret-as="spell-out">' + password + '</say-as></prosody>.');
+    res.say('Your new ' + rnumber + ' character password is <prosody rate="x-slow"><say-as interpret-as="spell-out">' + password + '</say-as></prosody>.');
     res.card({
   type: "Simple",
   title: "Your New Password", // this is not required for type Simple
@@ -90,7 +90,7 @@ alexaApp.intent('Generate', {
     res.say("I can't produce only parts of a character. And if i could, the resultant password wouldn't likely be compatible with, anything. Please try again, and stick to integers.").shouldEndSession(false);
   } else if (digits > 0 && Number.isInteger(digits)){
     var password = generatePassword(digits);
-    res.say('Your new ' + digits + ' character long password is <prosody rate="x-slow"><say-as interpret-as="spell-out">' + password + '</say-as></prosody>.');
+    res.say('Your new ' + digits + ' character password is <prosody rate="x-slow"><say-as interpret-as="spell-out">' + password + '</say-as></prosody>.');
     res.card({
   type: "Simple",
   title: "Your New Password", // this is not required for type Simple
