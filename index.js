@@ -65,7 +65,7 @@ app.intent('Generate', {
   function(req, res) {
     
     var rawdigits = req.slot('digits');
-    var number = +req.session('number');
+    // Need yo process rawdigits into prpcrssef digit(s), but also check if valid, damaged, garbage, purposrful jigrry pokery, ..how parse? Parse integer? Convert typento numbrr? Handling form inpit?
     if (!guess) {
       res.say("Sorry, I didn't hear a number. The number was " + number);
     } else if (guess == number) {
