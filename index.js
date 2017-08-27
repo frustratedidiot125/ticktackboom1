@@ -2,7 +2,7 @@ var alexa = require('alexa-app');
 var express = require("express");
 var PORT = process.env.PORT || 8080;
 var app = express();
-alexaApp.express({
+alexa.express({
   expressApp: app,
   //router: express.Router(),
 
