@@ -5,7 +5,7 @@ var PORT = process.env.PORT || 8080;
 var app = express();
 var alexaApp = new alexa.app("alexa");
 
-app.express({
+alexaApp.express({
   expressApp: app,
   //router: express.Router(),
 
