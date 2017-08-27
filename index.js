@@ -1,10 +1,13 @@
 var alexa = require('alexa-app');
 var express = require("express");
 var PORT = process.env.PORT || 8080;
-var app = express();
+var express_app = express();
+//var app = express();
+var app = new alexa.app("app");
+
 
 app.express({
-  expressApp: app,
+  expressApp: express_app,
   //router: express.Router(),
 
   // verifies requests come from amazon alexa. Must be enabled for production.
