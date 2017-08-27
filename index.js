@@ -26,7 +26,7 @@ module.change_code = 1;
 // Define an alexa-app
 //var app = new alexa.app('number_guessing_game');
 //app.id = require('./package.json').alexa.applicationId;
-var prompt = "Say generate and I'll generate a completely random password of random length for you, or tell me the length that you need, for instance, give me an 8 character password.";
+var prompt = "Say generate a password and I'll generate a completely random alphanumeric password of random length for you, or tell me the length that you need, for instance, give me an 8 character password.";
 function generatePassword(passwordLength) {
   var numberChars = "0123456789";
   var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
