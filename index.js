@@ -101,7 +101,7 @@ app.intent('Generate', {
 
 //module.exports = app;
 
-alexaApp.intent("AMAZON.StopIntent", {
+app.intent("AMAZON.StopIntent", {
   "slots": {} },
 //"utterances": [ 
  //              "help", "help me"
@@ -112,7 +112,7 @@ alexaApp.intent("AMAZON.StopIntent", {
   }
  );
 
-alexaApp.intent("AMAZON.CancelIntent", {
+app.intent("AMAZON.CancelIntent", {
   "slots": {} },
 //"utterances": [ 
  //              "help", "help me"
@@ -122,7 +122,7 @@ alexaApp.intent("AMAZON.CancelIntent", {
     response.say("Cancelling. Goodbye!").shouldEndSession(true);
   }
  );
-alexaApp.intent("AMAZON.HelpIntent", {
+app.intent("AMAZON.HelpIntent", {
   "slots": {} },
 //"utterances": [ 
  //              "help", "help me"
