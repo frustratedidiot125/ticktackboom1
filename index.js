@@ -26,7 +26,7 @@ module.change_code = 1;
 // Define an alexa-app
 //var app = new alexa.app('number_guessing_game');
 //app.id = require('./package.json').alexa.applicationId;
-var prompt = "Say generate and I'll generate a completely random password of random length for you, or tell me the number of digits you need, for instance, give me an 8 digit password.";
+var prompt = "Say generate and I'll generate a completely random password of random length for you, or tell me the length that you need, for instance, give me an 8 character password.";
 function generatePassword(passwordLength) {
   var numberChars = "0123456789";
   var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -50,10 +50,8 @@ function shuffleArray(array) {
 }
 
 app.launch(function(req, res) {
-  var number = Math.floor(Math.random()*(50-8+1)+8);
-
-  res.session('number', number);
-  res.session('guesses', 0);
+  
+  
   
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
@@ -63,10 +61,19 @@ app.intent('Generate', {
     "utterances": ["{1-100|guess}"]
   },
   function(req, res) {
-    
+    var number = Math.floor(Math.random()*(50-8+1)+8);
+
     var rawdigits = req.slot('digits');
     // Need yo process rawdigits into prpcrssef digit(s), but also check if valid, damaged, garbage, purposrful jigrry pokery, ..how parse? Parse integer? Convert typento numbrr? Handling form inpit?
-    if (!guess) {
+   var digits = Number(rawdigits);
+
+  if (!rawdigits){
+    res.say("Here's your password. It's " + number + " characters long. <say-as interpret-as=\"glyphs, spell-out\">
+
+    if(isNaN(digits)){
+    res.say("Sorry, I didn't hear a proper number there. Please try again."
+  
+  If (!guess) {
       res.say("Sorry, I didn't hear a number. The number was " + number);
     } else if (guess == number) {
       res.say("Congratulations, you guessed the number in " + guesses + (guesses == 1 ? " try" : " tries"));
