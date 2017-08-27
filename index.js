@@ -68,7 +68,8 @@ app.intent('Generate', {
    var digits = Number(rawdigits);
 
   if (!rawdigits){
-    res.say("Here's your password. It's " + number + " characters long. <say-as interpret-as=\"glyphs, spell-out\">
+    res.say("Here's your password. It's " + number + " characters long. <say-as interpret-as=\"characters\" format=\"glyphs\">" + generatePassword(number) + "</say>.").shouldEndSession(true);
+    } else if 
 
     if(isNaN(digits)){
     res.say("Sorry, I didn't hear a proper number there. Please try again."
