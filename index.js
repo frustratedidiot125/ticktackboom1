@@ -27,9 +27,31 @@ module.change_code = 1;
 //var app = new alexa.app('number_guessing_game');
 //app.id = require('./package.json').alexa.applicationId;
 var prompt = "Say generate and I'll generate a completely random password of random length for you, or tell me the number of digits you need, for instance, give me an 8 digit password.";
+function generatePassword(passwordLength) {
+  var numberChars = "0123456789";
+  var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var lowerChars = "abcdefghijklmnopqrstuvwxyz";
+  var allChars = numberChars + upperChars + lowerChars;
+  var randPasswordArray = Array(passwordLength);
+  randPasswordArray[0] = numberChars;
+  randPasswordArray[1] = upperChars;
+  randPasswordArray[2] = lowerChars;
+  randPasswordArray = randPasswordArray.fill(allChars, 3);
+  return shuffleArray(randPasswordArray.map(function(x) { return x[Math.floor(Math.random() * x.length)] })).join('');
+}
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
 
 app.launch(function(req, res) {
-  var number = Math.floor(Math.random() * 99) + 1;
+  var number = Math.floor(Math.random()*(50-8+1)+8);
+
   res.session('number', number);
   res.session('guesses', 0);
   
@@ -98,7 +120,7 @@ alexaApp.intent("AMAZON.HelpIntent", {
   //              ]
 //  },
   function(request, response) {
-    response.say('Follow the frequent prompts, or say stop at any time to exit.').shouldEndSession(false);
+    response.say(prompt + ' Follow the frequent prompts, or say stop at any time to exit.').shouldEndSession(false);
   }
  );
 
