@@ -26,22 +26,23 @@ module.change_code = 1;
 // Define an alexa-app
 //var app = new alexa.app('number_guessing_game');
 //app.id = require('./package.json').alexa.applicationId;
+var prompt = "Say generate and I'll generate a completely random password of random length for you, or tell me the number of digits you need, for instance, give me an 8 digit password.";
 
 app.launch(function(req, res) {
   var number = Math.floor(Math.random() * 99) + 1;
   res.session('number', number);
   res.session('guesses', 0);
-  var prompt = "Guess a number between 1 and 100!";
+  
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
 
-app.intent('GuessIntent', {
-    "slots": { "guess": "NUMBER" },
+app.intent('Generate', {
+    "slots": { "digits": "numba" },
     "utterances": ["{1-100|guess}"]
   },
   function(req, res) {
-    var guesses = (+req.session('guesses')) + 1;
-    var guess = req.slot('guess');
+    
+    var rawdigits = req.slot('digits');
     var number = +req.session('number');
     if (!guess) {
       res.say("Sorry, I didn't hear a number. The number was " + number);
