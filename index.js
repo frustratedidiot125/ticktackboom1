@@ -1,6 +1,6 @@
 var alexa = require("alexa-app");
 var express = require("express");
-var M2M = require ("minutes-to-midnight");
+// var M2M = require ("minutes-to-midnight");
 var PORT = process.env.PORT || 8080;
 
 var app = express();
@@ -33,7 +33,7 @@ module.change_code = 1;
 
 alexaApp.launch(function(req, res) {
   
-  var ctime = M2M().getTime();
+ var ctime = ;// M2M().getTime();
  console.log("getTimeLaunch: " + ctime);
   var prompt = "The current time on the doomsday clock is " + ctime + ". Have a nice day!";
 
@@ -51,7 +51,7 @@ alexaApp.intent('CurrTime', {
     "utterances": ["{1-100|guess}"]
   },
   function(req, res) {
-   var ctime = M2M().getTime();
+   var ctime = ;// M2M().getTime();
   console.log("getTimeintent: " + ctime);
  var prompt = "The doomsday clock reads " + ctime + ".";
 
@@ -69,7 +69,7 @@ alexaApp.intent('MinToMid', {
     "utterances": ["{1-100|guess}"]
   },
   function(req, res) {
-   var mtime = M2M().get();
+   var mtime = ;// M2M().get();
   console.log("getminutestil: " + mtime);
  var prompt = "It is currently " + mtime + "minutes to midnight.";
 
