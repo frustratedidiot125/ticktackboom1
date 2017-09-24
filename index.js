@@ -1,5 +1,6 @@
 var alexa = require("alexa-app");
 var express = require("express");
+var M2M = require ("minutes-to-midnight");
 var PORT = process.env.PORT || 8080;
 
 var app = express();
@@ -29,34 +30,13 @@ module.change_code = 1;
 // Define an alexa-app
 //var app = new alexa.app('number_guessing_game');
 //app.id = require('./package.json').alexa.applicationId;
-var prompt = "Say generate a password and I'll generate a completely random alphanumeric password of random length for you, or tell me the length that you need, for instance, give me an 8 character password.";
-function generatePassword(passwordLength) {
-  var numberChars = "0123456789";
-  var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var lowerChars = "abcdefghijklmnopqrstuvwxyz";
-  var allChars = numberChars + upperChars + lowerChars;
-  var randPasswordArray = Array(passwordLength);
-  randPasswordArray[0] = numberChars;
-  randPasswordArray[1] = upperChars;
-  randPasswordArray[2] = lowerChars;
-  randPasswordArray = randPasswordArray.fill(allChars, 3);
-  return shuffleArray(randPasswordArray.map(function(x) { return x[Math.floor(Math.random() * x.length)] })).join('');
-}
-function shuffleArray(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-  return array;
-}
 
 alexaApp.launch(function(req, res) {
   
   
-  
-  res.say(prompt).reprompt(prompt).shouldEndSession(false);
+ var prompt = "The current time on the doomsday clock is " + M2M().getTime() + ". Have a nice day!";
+
+  res.say(prompt).shouldEndSession(true);
 });
 
 alexaApp.intent('Generate', {
