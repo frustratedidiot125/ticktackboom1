@@ -1,7 +1,7 @@
 {
-  "name": "passthekeys",
+  "name": "ticktackboom",
   "version": "1.0.0",
-  "description": "makes passwds",
+  "description": "tells time sorta",
   "main": "index.js",
    "scripts": {
     "start": "node index.js",
@@ -25,6 +25,7 @@
   "dependencies": {
     "alexa-app": "^4.0.0",
     "ejs": "^2.5.6",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "minutes-to-midnight": "^0.2.0"
   }
 }
