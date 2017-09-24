@@ -51,7 +51,7 @@ alexaApp.intent('CurrTime', {
   },
   function(req, res) {
    var ctime = M2M().getTime();
- var prompt = "The present time on the doomsday clock is " + ctime + ".";
+ var prompt = "The doomsday clock reads " + ctime + ".";
 
   res.say(prompt);
   res.card({
