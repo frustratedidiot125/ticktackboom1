@@ -1,7 +1,7 @@
 {
   "name": "ticktackboom",
   "version": "1.0.0",
-  "description": "tells time sorta",
+  "description": "tells time darkly",
   "main": "index.js",
    "scripts": {
     "start": "node index.js",
