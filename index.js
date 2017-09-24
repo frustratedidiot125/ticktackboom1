@@ -34,7 +34,7 @@ module.change_code = 1;
 alexaApp.launch(function(req, res) {
   
  var ctime = // M2M().getTime();
- console.log("getTimeLaunch: " + ctime);
+ //console.log("getTimeLaunch: " + ctime);
   var prompt = "The current time on the doomsday clock is " + ctime + ". Have a nice day!";
 
   res.say(prompt);
@@ -52,7 +52,7 @@ alexaApp.intent('CurrTime', {
   },
   function(req, res) {
    var ctime = // M2M().getTime();
-  console.log("getTimeintent: " + ctime);
+  // console.log("getTimeintent: " + ctime);
  var prompt = "The doomsday clock reads " + ctime + ".";
 
   res.say(prompt);
@@ -70,7 +70,7 @@ alexaApp.intent('MinToMid', {
   },
   function(req, res) {
    var mtime = // M2M().get();
-  console.log("getminutestil: " + mtime);
+ // console.log("getminutestil: " + mtime);
  var prompt = "It is currently " + mtime + "minutes to midnight.";
 
   res.say(prompt);
