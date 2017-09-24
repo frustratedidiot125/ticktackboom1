@@ -38,11 +38,11 @@ alexaApp.launch(function(req, res) {
   var prompt = "The current time on the doomsday clock is " + ctime + ". Have a nice day!";
 
   res.say(prompt);
-  //res.card({
-  //type: "Simple",
-  //title: "Doomsday Clock: Current Time", // this is not required for type Simple
-  //content: ctime
-//});
+  res.card({
+  type: "Simple",
+  title: "Doomsday Clock: Current Time", // this is not required for type Simple
+  content: ctime
+});
     res.shouldEndSession(true);
 });
 
