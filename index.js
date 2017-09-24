@@ -33,10 +33,16 @@ module.change_code = 1;
 
 alexaApp.launch(function(req, res) {
   
-  
- var prompt = "The current time on the doomsday clock is " + M2M().getTime() + ". Have a nice day!";
+  var ctime = M2M().getTime();
+ var prompt = "The current time on the doomsday clock is " + ctime + ". Have a nice day!";
 
-  res.say(prompt).shouldEndSession(true);
+  res.say(prompt);
+  res.card({
+  type: "Simple",
+  title: "Doomsday Clock: Current Time", // this is not required for type Simple
+  content: ctime
+});
+    res.shouldEndSession(true);
 });
 
 alexaApp.intent('Generate', {
