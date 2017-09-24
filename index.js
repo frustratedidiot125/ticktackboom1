@@ -35,7 +35,7 @@ alexaApp.launch(function(req, res) {
   
   var ctime = M2M().getTime();
  console.log("getTimeLaunch: " + ctime);
-  varvar prompt = "The current time on the doomsday clock is " + ctime + ". Have a nice day!";
+  var prompt = "The current time on the doomsday clock is " + ctime + ". Have a nice day!";
 
   res.say(prompt);
   res.card({
