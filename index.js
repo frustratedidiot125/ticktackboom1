@@ -51,7 +51,8 @@ alexaApp.intent('CurrTime', {
     "utterances": ["{1-100|guess}"]
   },
   function(req, res) {
-   var ctime = new M2M().getTime();
+   var ctime = new M2M().getTime().then(console.log).catch(console.error);
+  
   console.log("getTime: " + ctime);
  
 
