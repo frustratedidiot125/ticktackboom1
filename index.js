@@ -69,7 +69,7 @@ alexaApp.intent('MinToMid', {
     "utterances": ["{1-100|guess}"]
   },
   function(req, res) {
-   var mtime = M2M().get();
+   var mtime = new M2M().get();
  console.log("getminutestil: " + mtime);
 
 
