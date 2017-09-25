@@ -1,6 +1,6 @@
 var alexa = require("alexa-app");
 var express = require("express");
-// var M2M = require ("minutes-to-midnight");
+var M2M = require ("minutes-to-midnight");
 var PORT = process.env.PORT || 8080;
 
 var app = express();
@@ -33,11 +33,11 @@ module.change_code = 1;
 
 alexaApp.launch(function(req, res) {
   
- var ctime = // M2M().getTime();
- //console.log("getTimeLaunch: " + ctime);
-  var prompt = "The current time on the doomsday clock is " + ctime + ". Have a nice day!";
+ var ctime = new M2M().getTime();
+ console.log("getTimeLaunch: " + ctime);
+ 
 
-  res.say(prompt);
+  res.say("The current time on the doomsday clock is " + ctime + ". Have a nice day!");
   res.card({
   type: "Simple",
   title: "Doomsday Clock: Current Time", // this is not required for type Simple
@@ -51,11 +51,11 @@ alexaApp.intent('CurrTime', {
     "utterances": ["{1-100|guess}"]
   },
   function(req, res) {
-   var ctime = // M2M().getTime();
-  // console.log("getTimeintent: " + ctime);
- var prompt = "The doomsday clock reads " + ctime + ".";
+   var ctime = new M2M().getTime();
+  console.log("getTime: " + ctime);
+ 
 
-  res.say(prompt);
+  res.say("The doomsday clock reads " + ctime + ".");
   res.card({
   type: "Simple",
   title: "Doomsday Clock: Current Time", // this is not required for type Simple
@@ -69,11 +69,11 @@ alexaApp.intent('MinToMid', {
     "utterances": ["{1-100|guess}"]
   },
   function(req, res) {
-   var mtime = // M2M().get();
- // console.log("getminutestil: " + mtime);
- var prompt = "It is currently " + mtime + "minutes to midnight.";
+   var mtime = M2M().get();
+ console.log("getminutestil: " + mtime);
 
-  res.say(prompt);
+
+  res.say("It is currently " + mtime + "minutes to midnight.");
   res.card({
   type: "Simple",
   title: "Doomsday Clock: Minutes til midnight", // this is not required for type Simple
