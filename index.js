@@ -39,7 +39,7 @@ new M2M().get()
     .catch(console.error);
 console.log('minutevar: '+minutevar);
 // 3  
-
+var timevar
 new M2M().getTime()
  //   .then(console.log)
 .then(timevar)
