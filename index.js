@@ -37,7 +37,7 @@ var minutevar = function (){ return new M2M().get().then() };
   //  .then(console.log) 
 //.then(this.minutevar)
    // .catch(console.error);
-console.log('minutevar: ' + minutevar);
+console.log('minutevar: ' + minutevar());
 // 3  
 
 var timevar = new M2M().getTime()
