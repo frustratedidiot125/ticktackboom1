@@ -35,14 +35,14 @@ var M2M = require ('minutes-to-midnight');
 
 var minutevar = new M2M().get()
   //  .then(console.log) 
-.then(return)
+.then(this.minutevar)
     .catch(console.error);
 console.log('minutevar: ' + minutevar);
 // 3  
 
 var timevar = new M2M().getTime()
- //   .then(console.log)
-.then(return)
+ //   .then(console.lttog)
+.then(this.timevar)
     .catch(console.error);
 console.log('timevar: ' + timevar);
 
