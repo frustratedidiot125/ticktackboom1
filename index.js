@@ -25,7 +25,7 @@ alexaApp.express({
 // from here on you can setup any other express routes or middlewares as normal
 app.set("view engine", "ejs");
 // Allow this module to be reloaded by hotswap when changed
-module.change_code = 1;
+//module.change_code = 1;
 
 // Define an alexa-app
 //var app = new alexa.app('number_guessing_game');
