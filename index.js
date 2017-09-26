@@ -35,6 +35,7 @@ var M2M = require ('minutes-to-midnight');
   new M2M().get()
     .then(console.log) 
     .catch(console.error);
+console.log("tryvarmin"+M2M().get());
 // 3  
 
 new M2M().getTime()
