@@ -37,14 +37,14 @@ var minutevar = new M2M().get()
   //  .then(console.log) 
 .then(return)
     .catch(console.error);
-console.log('minutevar: '+minutevar);
+console.log('minutevar: ' + minutevar);
 // 3  
 
 var timevar = new M2M().getTime()
  //   .then(console.log)
 .then(return)
     .catch(console.error);
-console.log('timevar: '+timevar);
+console.log('timevar: ' + timevar);
 
 // 11:57 PM 
 //var ctime = new M2M().getTime();
