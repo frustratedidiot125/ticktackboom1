@@ -32,15 +32,19 @@ var M2M = require ('minutes-to-midnight');
 //app.id = require('./package.json').alexa.applicationId;
 
 //alexaApp.launch(function(req, res) {
-  new M2M().get()
-    .then(console.log) 
+var minutevar;
+new M2M().get()
+  //  .then(console.log) 
+.then(minutevar)
     .catch(console.error);
-console.log("tryvarmin"+M2M().get());
+console.log('minutevar: '+minutevar);
 // 3  
 
 new M2M().getTime()
-    .then(console.log)
+ //   .then(console.log)
+.then(timevar)
     .catch(console.error);
+console.log('timevar: '+timevar);
 
 // 11:57 PM 
 //var ctime = new M2M().getTime();
