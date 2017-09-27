@@ -33,10 +33,12 @@ var M2M = require ('minutes-to-midnight');
 
 //alexaApp.launch(function(req, res) {
 
-var minutevar = function (){ return new M2M().get().then() };
+//var minutevar = function (){ return new M2M().get().then() };
   //  .then(console.log) 
 //.then(this.minutevar)
    // .catch(console.error);
+
+const minutevar = M2M.get.then();
 console.log('minutevar: ' + minutevar());
 // 3  
 
