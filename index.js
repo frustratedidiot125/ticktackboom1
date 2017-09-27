@@ -38,8 +38,8 @@ var M2M = require ('minutes-to-midnight');
 //.then(this.minutevar)
    // .catch(console.error);
 
-const minutevar = new M2M().get().then();
-console.log('minutevar: ' + resolve minutevar);
+const minutevar = new M2M().get().then(console.log);
+console.log('minutevar: ' + minutevar);
 // 3  
 
 var timevar = new M2M().getTime()
